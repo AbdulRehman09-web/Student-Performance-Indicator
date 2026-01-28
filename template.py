@@ -4,7 +4,7 @@ import logging
 
 logging.basicConfig(level=logging.INFO)
 
-project_name = 'Student-Performance-Indicator'
+project_name = 'Student_Performance_Indicator'
 
 list_of_files = [
     ".github/workflows/.gitkeep",
