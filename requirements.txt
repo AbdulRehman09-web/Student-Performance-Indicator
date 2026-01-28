@@ -4,5 +4,7 @@ scikit-learn
 flask
 flask-cors
 gunicorn
+mysql-connector-python
+pymysql
 
 -e .
