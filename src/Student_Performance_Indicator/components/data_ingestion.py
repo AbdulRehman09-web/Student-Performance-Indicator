@@ -22,8 +22,8 @@ class DataIngestion:
         logging.info("Data Ingestion started")
         try:
             # Reading data from MySQL database instead of CSV file
-            df = read_sql_data()
-            logging.info("Reading data from MySQL database")
+            df = pd.read_csv(os.path.join('notebooks/data', 'data.csv'))
+            logging.info("Reading data from CSV file")
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path), exist_ok=True)
             df.to_csv(self.ingestion_config.raw_data_path, index=False, header=True)
             logging.info("Raw data saved to %s", self.ingestion_config.raw_data_path)

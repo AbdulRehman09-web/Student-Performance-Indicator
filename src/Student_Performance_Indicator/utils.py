@@ -3,6 +3,7 @@ import os
 import pandas as pd
 import pymysql
 from dotenv import load_dotenv
+import pickle
 
 from src.Student_Performance_Indicator.exception import CustomException
 from src.Student_Performance_Indicator.logger import logging
@@ -42,4 +43,23 @@ def read_sql_data():
 
     except Exception as e:
         logging.error("MySQL read failed")
+        raise CustomException(e, sys)
+    
+def save_object(file_path, obj):
+    """
+    Save ML objects (preprocessor, model, etc.) using pickle
+    """
+
+    try:
+        dir_path = os.path.dirname(file_path)
+
+        os.makedirs(dir_path, exist_ok=True)
+
+        with open(file_path, "wb") as file_obj:
+            pickle.dump(obj, file_obj)
+
+        logging.info(f"Object saved successfully at: {file_path}")
+
+    except Exception as e:
+        logging.error("Error in save_object function")
         raise CustomException(e, sys)

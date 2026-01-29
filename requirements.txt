@@ -6,5 +6,9 @@ flask-cors
 gunicorn
 mysql-connector-python
 pymysql
+matplotlib
+seaborn
+xgboost
+catboost
 
 -e .
